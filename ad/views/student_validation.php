@@ -348,7 +348,7 @@ $pageTitle = 'Validation des comptes étudiants';
                 </select>
             </div>
             
-            <div class="filter-group">
+            <!-- <div class="filter-group">
                 <span class="filter-label">Cycle:</span>
                 <select id="cycle-filter" onchange="applyFilters()">
                     <option value="">Tous</option>
@@ -356,7 +356,7 @@ $pageTitle = 'Validation des comptes étudiants';
                     <option value="Master" <?= $cycleFilter === 'Master' ? 'selected' : '' ?>>Master</option>
                     <option value="Doctorat" <?= $cycleFilter === 'Doctorat' ? 'selected' : '' ?>>Doctorat</option>
                 </select>
-            </div>
+            </div> -->
             
             <div class="filter-group">
                 <span class="filter-label">Niveau:</span>
@@ -364,9 +364,6 @@ $pageTitle = 'Validation des comptes étudiants';
                     <option value="">Tous</option>
                     <option value="1" <?= $niveauFilter === '1' ? 'selected' : '' ?>>Niveau 1</option>
                     <option value="2" <?= $niveauFilter === '2' ? 'selected' : '' ?>>Niveau 2</option>
-                    <option value="3" <?= $niveauFilter === '3' ? 'selected' : '' ?>>Niveau 3</option>
-                    <option value="4" <?= $niveauFilter === '4' ? 'selected' : '' ?>>Niveau 4</option>
-                    <option value="5" <?= $niveauFilter === '5' ? 'selected' : '' ?>>Niveau 5</option>
                 </select>
             </div>
             

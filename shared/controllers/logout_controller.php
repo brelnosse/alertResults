@@ -24,8 +24,12 @@ $_SESSION = [];
 
 // Détruire la session
 session_destroy();
-
+$path ="";
+if($userType == 'admin'){
+    $path = "../../ad/index.php";
+}
+$path = "../../$userType/index.php";
 // Rediriger vers la page de connexion
-header('Location: ../../index.php');
+header('Location: '.$path);
 exit;
 ?>

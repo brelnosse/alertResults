@@ -160,7 +160,9 @@ function loginUser($user, $remember = false) {
         $teacherDetails = getTeacherDetails($user['id']);
         if ($teacherDetails) {
             // Stocker les détails de l'enseignant si nécessaire
+            $_SESSION['status'] = $teacherDetails['status'];
         }
+
     }
     
     // Si l'utilisateur souhaite rester connecté, créer un cookie

@@ -514,6 +514,93 @@ class Mailer {
         return self::sendEmail($to, $subject, $message, $altMessage); 
 
     }
+        /**
+     * Envoie un email de rejet de compte à l'enseignant
+     * 
+     * @param string $to L'adresse email de l'enseignant
+     * @param string $firstname Le prénom de l'enseignant
+     * @param string $lastname Le nom de l'enseignant
+     * @param string $reason La raison du rejet
+     * @return bool True si l'email a été envoyé, false sinon
+     */
+    public function sendTeacherAccountRejectionEmail($to, $firstname, $lastname, $reason) {
+        $subject = 'Information concernant votre compte';
+        
+        // Corps du message HTML
+        $message = "
+            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+                <h2 style='color: #4a5568;'>Information concernant votre compte</h2>
+                <p>Bonjour {$firstname} {$lastname},</p>
+                <p>Nous vous informons que votre demande pour enseigner les matières que vous avez sélèctionner n'a pas été approuvée.</p>
+                <p><strong>Raison :</strong> {$reason}</p>
+                <p>Si vous pensez qu'il s'agit d'une erreur ou si vous souhaitez obtenir plus d'informations, veuillez contacter l'administration de l'établissement.</p>
+                <p>Vous pouvez consulter la liste des matières que vous avez demandées dans votre espace enseignant.</p>
+                <p>Cordialement,<br>L'équipe administrative</p>
+            </div>
+        ";
+        
+        // Version texte brut
+        $altMessage = "
+            Information concernant votre compte
+            
+            Bonjour {$firstname} {$lastname},
+            
+            Nous vous informons que votre demande pour enseigner les matières que vous avez sélèctionner n'a pas été approuvée.
+            
+            Raison : {$reason}
+            
+            Si vous pensez qu'il s'agit d'une erreur ou si vous souhaitez obtenir plus d'informations, veuillez contacter l'administration de l'établissement.
+            
+            Cordialement,
+            L'équipe administrative
+        ";
+        return self::sendEmail($to, $subject, $message, $altMessage); 
+
+    }
+
+            /**
+     * Envoie un email d'approbation de compte à l'étudiant
+     * 
+     * @param string $to L'adresse email de l'étudiant
+     * @param string $firstname Le prénom de l'étudiant
+     * @param string $lastname Le nom de l'étudiant
+     * @return bool True si l'email a été envoyé, false sinon
+     */
+    public function sendTeacherAccountApprovalEmail($to, $firstname, $lastname) {
+        // Destinataire
+        $subject = 'Votre compte a été validé';
+        
+        // Corps du message HTML
+        $message = "
+            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+                <h2 style='color: #4a5568;'>Votre compte a été validé</h2>
+                <p>Bonjour {$firstname} {$lastname},</p>
+                <p>Nous avons le plaisir de vous informer que les matières sélèctionnées ont été validé par notre équipe administrative.</p>
+                <p>Vous pouvez maintenant vous connecter à votre espace en utilisant votre adresse email et votre mot de passe, pour commençer le remplissage de notes.</p>
+                <p style='margin: 20px 0;'>
+                    <a href='http://alertResults.test/teacher/' style='background-color: #3490dc; color: white; padding: 10px 15px; text-decoration: none; border-radius: 4px;'>Se connecter</a>
+                </p>
+                <p>Cordialement,<br>L'équipe administrative</p>
+            </div>
+        ";
+        
+        // Version texte brut
+        $altMessage = "
+            Votre compte a été validé
+            
+            Bonjour {$firstname} {$lastname},
+            
+                Nous avons le plaisir de vous informer que les matières sélèctionnées ont été validé par notre équipe administrative.
+                Vous pouvez maintenant vous connecter à votre espace en utilisant votre adresse email et votre mot de passe, pour commençer le remplissage de notes.
+            
+            http://alertResults.test/teacher/
+            
+            Cordialement,
+            L'équipe administrative
+        ";
+        
+        return self::sendEmail($to, $subject, $message, $altMessage);
+    }
 }
 ?>
 

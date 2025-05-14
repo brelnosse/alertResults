@@ -109,13 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($success) {
                 // Journaliser l'action
                 logAction('admin_creation', "Nouvel administrateur créé: $firstname $lastname ($role)", $userId);
-                
-                if(isset($_SESSION['form_data'])){
-                    unset($_SESSION['form_data']);
-                }
-                if(isset($_SESSION['form_errors'])){
-                    unset($_SESSION['form_errors']);
-                }
+
                 // Redirection vers la page de connexion avec un message de succès
                 redirectWithMessage('../index.php', 'Inscription réussie! Vous pouvez maintenant vous connecter.');
             } else {

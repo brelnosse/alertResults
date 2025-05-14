@@ -21,7 +21,6 @@ if (!isUserLoggedIn() && isset($_COOKIE['remember_token_teacher'])) {
         if ($user) {
             // Récupérer les détails spécifiques de l'utilisateur
             $userDetails = getUserDetails($user['id'], 'teacher');
-            
             // Créer la session utilisateur
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email'];

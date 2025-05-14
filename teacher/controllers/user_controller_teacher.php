@@ -96,12 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 // Journaliser l'action
                 logAction('teacher_registration', "Nouvel enseignant inscrit: $firstname $lastname", $userId);
-                if(isset($_SESSION['form_data'])){
-                    unset($_SESSION['form_data']);
-                }
-                if(isset($_SESSION['form_errors'])){
-                    unset($_SESSION['form_errors']);
-                }
                 // Redirection vers la page de connexion avec un message de succès
                 redirectWithMessage('../index.php', 'Inscription réussie! Vous pouvez maintenant vous connecter.');
             } else {

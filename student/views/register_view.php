@@ -35,6 +35,7 @@ if(isset($_SESSION['form_errors'])) {
         'classe' => ''
     ];
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -102,10 +103,10 @@ if(isset($_SESSION['form_errors'])) {
                         <select id="cycle" name="cycle" required>
                             <option value="" <?= empty($formData['cycle']) ? 'selected' : '' ?>>Sélectionnez un cycle</option>
                             <option value="prepa-ingenieur" <?= $formData['cycle'] == 'prepa-ingenieur' ? 'selected' : '' ?>>Prépa-Ingénieur</option>
-                            <option value="bts" <?= $formData['cycle'] == 'bts' ? 'selected' : '' ?>>BTS</option>
+                            <!-- <option value="bts" <?= $formData['cycle'] == 'bts' ? 'selected' : '' ?>>BTS</option>
                             <option value="ingenieur" <?= $formData['cycle'] == 'ingenieur' ? 'selected' : '' ?>>Ingénieur</option>
                             <option value="dut" <?= $formData['cycle'] == 'dut' ? 'selected' : '' ?>>DUT</option>
-                            <option value="licence" <?= $formData['cycle'] == 'licence' ? 'selected' : '' ?>>Licence</option>
+                            <option value="licence" <?= $formData['cycle'] == 'licence' ? 'selected' : '' ?>>Licence</option> -->
                         </select>
                         <div class="error-message"></div>
                         <p class="error"><?= isset($formErrors['cycle']) ? $formErrors['cycle'] : '' ?></p>
@@ -167,3 +168,12 @@ if(isset($_SESSION['form_errors'])) {
     <script src="../../shared/assets/js/circle.js"></script>
 </body>
 </html>
+<?php
+    if(isset($_SESSION['form_data'])){
+        unset($_SESSION['form_data']);
+        $formData = [];
+    }
+    if(isset($_SESSION['form_errors'])){
+        unset($_SESSION['form_errors']);
+        $formErrors = [];
+    }

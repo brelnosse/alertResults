@@ -156,12 +156,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 // Journaliser l'action
                 logAction('student_registration', "Nouvel étudiant inscrit: $firstname $lastname ($specialite)", $userId);
-                if(isset($_SESSION['form_data'])){
-                    unset($_SESSION['form_data']);
-                }
-                if(isset($_SESSION['form_errors'])){
-                    unset($_SESSION['form_errors']);
-                }
                 // Redirection vers la page de connexion avec un message de succès
                 redirectWithMessage('../index.php', 'Inscription réussie! Votre compte est en attente de validation par un administrateur. Vous recevrez un email lorsque votre compte sera validé.');
             } else {

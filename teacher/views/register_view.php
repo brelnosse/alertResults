@@ -99,3 +99,12 @@ if(isset($_SESSION['form_errors'])) {
     <script src="../../shared/assets/js/circle.js"></script>
 </body>
 </html>
+<?php
+    if(isset($_SESSION['form_data'])){
+        unset($_SESSION['form_data']);
+        $formData = [];
+    }
+    if(isset($_SESSION['form_errors'])){
+        unset($_SESSION['form_errors']);
+        $formErrors = [];
+    }
